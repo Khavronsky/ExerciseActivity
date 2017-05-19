@@ -34,9 +34,9 @@ public class VPAdapterOfMainExerciseScreen extends FragmentPagerAdapter {
             case 0:
                 return mFragment3;
             case 1:
-                return mFragment1;
-            case 2:
                 return mFragment2;
+            case 2:
+                return mFragment1;
         }
         return mFragment2;
     }
