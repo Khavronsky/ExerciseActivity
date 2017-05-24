@@ -1,6 +1,7 @@
 package com.khavronsky.exerciseactivity.adapters;
 
 
+import com.khavronsky.exerciseactivity.ModelOfItemForExCatalog;
 import com.khavronsky.exerciseactivity.R;
 
 import android.support.v7.widget.RecyclerView;
@@ -13,39 +14,57 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdapterToExCatalogRecycler extends RecyclerView.Adapter<AdapterToExCatalogRecycler.ExerciseCatalogHolder> {
+public class AdapterToExCatalogRecycler
+        extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private List<String> exerciseCatalog = new ArrayList<>();
+    private List<ModelOfItemForExCatalog> exerciseCatalog = new ArrayList<>();
 
-    public AdapterToExCatalogRecycler setExerciseCatalog(final List<String> exerciseCatalog) {
+    public AdapterToExCatalogRecycler setExerciseCatalog(final List<ModelOfItemForExCatalog> exerciseCatalog) {
         this.exerciseCatalog = exerciseCatalog;
         Log.d("KhS", "setExerciseCatalog: ");
         return this;
     }
 
     @Override
-    public ExerciseCatalogHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
-        View view = LayoutInflater
-                .from(parent.getContext())
-                .inflate(R.layout.exercise_catalog_recycler_item, parent, false);
-        Log.d("KhS", "onCreateViewHolder: ");
-        return new ExerciseCatalogHolder(view);
+    public RecyclerView.ViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
+        if (viewType == 0) {
+            View view = LayoutInflater
+                    .from(parent.getContext())
+                    .inflate(R.layout.exercise_catalog_recycler_capital_letter_item, parent, false);
+            return new CapitalLetterItem(view);
+        } else {
+            View view = LayoutInflater
+                    .from(parent.getContext())
+                    .inflate(R.layout.exercise_catalog_recycler_item, parent, false);
+            return new ExerciseCatalogHolder(view);
+        }
     }
 
     @Override
-    public void onBindViewHolder(final ExerciseCatalogHolder holder, final int position) {
-        holder.setText(exerciseCatalog.get(position));
-        Log.d("KhS", "onBindViewHolder: "+ exerciseCatalog.get(position));
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
+        if (holder instanceof CapitalLetterItem) {
+            ((CapitalLetterItem) holder).setText(exerciseCatalog.get(position).getTitle());
+        } else {
+            ((ExerciseCatalogHolder) holder).setText(exerciseCatalog.get(position).getTitle());
+            Log.d("KhS", "onBindViewHolder: " + exerciseCatalog.get(position));
+        }
+    }
+
+    @Override
+    public int getItemViewType(final int position) {
+        return exerciseCatalog.get(position).getType() == ModelOfItemForExCatalog.ItemType.CAPITAL_LETTER ? 0 : 1;
     }
 
     @Override
     public int getItemCount() {
-        return exerciseCatalog == null? 0: exerciseCatalog.size();
+        return exerciseCatalog == null ? 0 : exerciseCatalog.size();
     }
-/**
- *      V I E W   H O L D E R
- * */
+
+    /**
+     * V I E W   H O L D E R
+     */
     class ExerciseCatalogHolder extends RecyclerView.ViewHolder {
+
         TextView mTextView;
 
         public ExerciseCatalogHolder(final View itemView) {
@@ -54,9 +73,25 @@ public class AdapterToExCatalogRecycler extends RecyclerView.Adapter<AdapterToEx
             Log.d("KhS", "ExerciseCatalogHolder: ");
         }
 
-        void setText(String text){
+        void setText(String text) {
             mTextView.setText(text);
         }
+    }
+
+    class CapitalLetterItem extends RecyclerView.ViewHolder {
+
+        TextView mTextView;
+
+        public CapitalLetterItem(final View itemView) {
+            super(itemView);
+            mTextView = (TextView) itemView.findViewById(R.id.exercise_catalog_capital_letter);
+
+        }
+
+        void setText(String text) {
+            mTextView.setText(text);
+        }
+
     }
 
 }

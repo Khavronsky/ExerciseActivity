@@ -1,5 +1,6 @@
 package com.khavronsky.exerciseactivity.fragments;
 
+import com.khavronsky.exerciseactivity.ModelOfItemForExCatalog;
 import com.khavronsky.exerciseactivity.R;
 import com.khavronsky.exerciseactivity.adapters.AdapterToExCatalogRecycler;
 
@@ -15,6 +16,9 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
+import static com.khavronsky.exerciseactivity.ModelOfItemForExCatalog.ItemType.CAPITAL_LETTER;
+import static com.khavronsky.exerciseactivity.ModelOfItemForExCatalog.ItemType.EXERCISE_TITLE;
+
 
 public class ExerciseCatalogFragment extends Fragment {
 
@@ -27,10 +31,12 @@ public class ExerciseCatalogFragment extends Fragment {
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.exercise_catalog_recycler);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         AdapterToExCatalogRecycler adapterToExCatalogRecycler = new AdapterToExCatalogRecycler();
-        adapterToExCatalogRecycler.setExerciseCatalog(new ArrayList<String>(){
+        adapterToExCatalogRecycler.setExerciseCatalog(new ArrayList<ModelOfItemForExCatalog>(){
             {
+                add(new ModelOfItemForExCatalog("A", CAPITAL_LETTER));
+
                 for (int i = 0; i < 20; i++) {
-                    add("abc" + i);
+                    add(new ModelOfItemForExCatalog(("abc" + i), EXERCISE_TITLE));
 
                 }
             }
