@@ -1,7 +1,7 @@
 package com.khavronsky.exerciseactivity.adapters;
 
 
-import com.khavronsky.exerciseactivity.ModelOfItemForExCatalog;
+import com.khavronsky.exerciseactivity.models.ModelOfItemForExCatalog;
 import com.khavronsky.exerciseactivity.R;
 
 import android.support.v7.widget.RecyclerView;
@@ -61,7 +61,7 @@ public class AdapterToExCatalogRecycler
     }
 
     /**
-     * V I E W   H O L D E R
+     *      V I E W   H O L D E R
      */
     class ExerciseCatalogHolder extends RecyclerView.ViewHolder {
 
@@ -93,5 +93,4 @@ public class AdapterToExCatalogRecycler
         }
 
     }
-
 }

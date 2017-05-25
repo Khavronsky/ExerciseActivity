@@ -9,10 +9,11 @@
         android:id="@+id/exercise_catalog_capital_letter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:textSize="16sp"
         android:fontFamily="sans-serif-light"
         android:textStyle="normal"
-        android:textColor="@color/balance"
+        android:textColor="@color/new_balance"
         android:lineSpacingExtra="6sp"
         android:text="Б"
         />

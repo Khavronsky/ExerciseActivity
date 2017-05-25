@@ -1,4 +1,4 @@
-package com.khavronsky.exerciseactivity;
+package com.khavronsky.exerciseactivity.models;
 
 
 public class ModelOfItemForExCatalog {

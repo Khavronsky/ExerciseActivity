@@ -15,10 +15,4 @@
         android:textColor="@color/gray5"
         android:text="Автомобильные гонки"
         />
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/gray1">
-
-    </FrameLayout>
 </LinearLayout>
