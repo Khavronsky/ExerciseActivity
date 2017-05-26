@@ -30,6 +30,9 @@ public class CustomExercisesFragment extends Fragment {
     @BindView(R.id.custom_exercise_create_btn)
     TextView createBtn;
 
+    @BindView(R.id.custom_exercise_not_found)
+    TextView emptyCustExList;
+
     @Nullable
     @Override
     public View onCreateView(final LayoutInflater inflater, @Nullable final ViewGroup container,
@@ -39,6 +42,7 @@ public class CustomExercisesFragment extends Fragment {
         RecyclerView recyclerView = (RecyclerView) view.findViewById(cardio_ex_custom_list);
         AdapterToCustomExerciseRecycler adapterToCustomExerciseRecycler = new AdapterToCustomExerciseRecycler
                 (createCustomExecList(), getFragmentManager());
+        emptyCustExList.setVisibility(View.GONE);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setVisibility(View.VISIBLE);
         recyclerView.setLayoutManager(layoutManager);

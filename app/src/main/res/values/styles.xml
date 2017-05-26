@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="popupMenuStyle">@style/MyPopupMenu</item>
     </style>
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
@@ -32,6 +33,7 @@
         <item name="android:textColorPrimary">@color/gray5</item>
         <item name="colorControlNormal">@color/gray5</item>
         <item name="background">@color/app_bar</item>
+
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
@@ -39,6 +41,7 @@
         <item name="android:colorBackground">@color/app_bar</item>
         <item name="android:textColorPrimary">@color/gray5</item>
     </style>
+
     <style name="EditText" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:colorBackground">@color/app_bar</item>
         <item name="android:textColorPrimary">@color/gray3</item>
@@ -56,5 +59,10 @@
     <style name="EditTextStyle" parent="Theme.AppCompat.Light">
         <item name="colorControlNormal">@color/gray1</item>
         <item name="colorControlActivated">@color/gray2</item>
+    </style>
+
+    <style name="MyPopupMenu" parent="@style/Widget.AppCompat.Light.PopupMenu">
+        <item name="android:dropDownHorizontalOffset">0dp</item>
+        <item name="android:dropDownVerticalOffset">0dp</item>
     </style>
 </resources>
