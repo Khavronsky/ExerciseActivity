@@ -62,6 +62,15 @@ public class CustomExercisesFragment extends Fragment {
                                 .setId(1);
                     }
                 });
+
+                add(new CustomExModel() {
+                    {
+                        this.setExTitle("PuperExercise")
+                                .setExSubTitle("PuperSubtitle")
+                                .setActive(true)
+                                .setId(2);
+                    }
+                });
             }
         };
     }
